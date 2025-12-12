@@ -1,0 +1,8 @@
+infrastructure:
+  db:
+    dsn: postgresql+asyncpg://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    pool_size: 15
+    pool_recycle: 1800
+  kafka:
+    bootstrap_servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    topic: ${KAFKA_TOPIC:orders}
