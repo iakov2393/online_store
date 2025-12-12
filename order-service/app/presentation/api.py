@@ -40,6 +40,7 @@ async def create_order(
             status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
         )
 
+
 @router.get(
     "/orders/{order_id}",
     status_code=HTTPStatus.OK,
@@ -58,8 +59,7 @@ async def get_order(
             return order
     except ValueError:
         raise HTTPException(
-            status_code=HTTPStatus.NOT_FOUND,
-            detail=f"Order {order_id} not found"
+            status_code=HTTPStatus.NOT_FOUND, detail=f"Order {order_id} not found"
         )
     except Exception as e:
         return JSONResponse(
